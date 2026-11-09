@@ -41,13 +41,13 @@ Main data tables include:
 
 The SQL analysis was divided into five stages:
 
-| Stage | Analysis |
-|---|---|
-| 01 | Data Quality |
-| 02 | Sales Analysis |
-| 03 | Delivery Performance |
-| 04 | Customer Satisfaction |
-| 05 | Integrated Insights |
+| Stage | Analysis | SQL Files |
+|---|---|---|
+| 01 | Data Quality | [View queries](01_Data_Quality/) |
+| 02 | Sales Analysis | [View queries](02_Sales%20Analysis/) |
+| 03 | Delivery Performance | [View queries](03_Delivery%20Performance/) |
+| 04 | Customer Satisfaction | [View queries](04_Customer%20Satisfaction/) |
+| 05 | Integrated Insights | [View queries](05_Integrated%20Insights/) |
 
 Each stage contains SQL queries designed to answer specific business questions and evaluate key performance indicators.
 
@@ -135,5 +135,12 @@ Based on the analysis, several opportunities for improvement were identified:
 - Customer reviews are associated with orders rather than individual products. Category-level review analysis therefore represents order-associated category satisfaction, not direct product-level ratings.
 - Observed relationships between delivery performance and customer ratings do not establish causation.
 
+## Project Status
 
+Completed:
+- SQL data quality assessment
+- Five stages of SQL business analysis
+- Three interactive Power BI dashboards
+- Validation of key metrics between SQL and Power BI
+- Business insights and recommendations
 
