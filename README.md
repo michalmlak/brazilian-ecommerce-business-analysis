@@ -65,6 +65,8 @@ Focus areas:
 - Sales by Product Category
 - Top Sellers by Sales
 - Payment Distribution and Payment Value by Method
+  
+<img width="1314" height="762" alt="Zrzut ekranu 2026-11-08 165605" src="https://github.com/user-attachments/assets/ab4c29de-5c9e-4dfe-b325-2d978f5d9ccb" />
 
 ### 2. Delivery Performance
 
@@ -75,6 +77,9 @@ Focus areas:
 - On-time vs. Late Deliveries
 - Monthly On-time Delivery Rate
 - Delivery Performance by Customer State
+  
+<img width="1315" height="747" alt="Zrzut ekranu 2026-11-08 165636" src="https://github.com/user-attachments/assets/83a8b90c-4854-45e2-8465-c234656a4563" />
+
 
 ### 3. Customer Satisfaction
 
@@ -86,6 +91,9 @@ Focus areas:
 - Monthly Average Rating Trend
 - Customer Ratings by Delivery Performance
 - Sales vs. Customer Satisfaction by Product Category
+
+<img width="1317" height="749" alt="Zrzut ekranu 2026-11-08 165648" src="https://github.com/user-attachments/assets/86bb6d09-4942-4cb3-bffa-e335eb24417f" />
+
 
 ## Key Business Insights
 
