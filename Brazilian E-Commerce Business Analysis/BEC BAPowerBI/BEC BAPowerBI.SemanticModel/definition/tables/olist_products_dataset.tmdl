@@ -1,0 +1,93 @@
+table olist_products_dataset
+	lineageTag: 39ae6b28-1abc-4ec3-b26e-300ae7002b81
+
+	column product_id
+		dataType: string
+		lineageTag: 8675d197-4ae8-4bef-a3ec-afe718367b39
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name
+		dataType: string
+		lineageTag: 504064b0-0e05-48a6-9518-6890c904ce35
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: ad3cf25c-bdd1-46b5-af20-4398523b7e25
+		summarizeBy: sum
+		sourceColumn: product_name_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_description_lenght
+		dataType: int64
+		formatString: 0
+		lineageTag: 29accc38-15bb-4f82-a6fe-afd6924dfa39
+		summarizeBy: sum
+		sourceColumn: product_description_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_photos_qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 89185546-f8d2-4d28-ad6e-58f15ddc563a
+		summarizeBy: sum
+		sourceColumn: product_photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_weight_g
+		dataType: int64
+		formatString: 0
+		lineageTag: 91415636-882e-460b-83ac-57bc24a562a6
+		summarizeBy: sum
+		sourceColumn: product_weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_length_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dd49db2-38e5-41ea-96c0-6a2d0a7f92c0
+		summarizeBy: sum
+		sourceColumn: product_length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_height_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a39e60e-e133-4ef5-8456-6fdd5ea006b9
+		summarizeBy: sum
+		sourceColumn: product_height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_width_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: dd988331-a3c1-42cb-8402-a0ba398e6b1b
+		summarizeBy: sum
+		sourceColumn: product_width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_products_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\MSSQLSERVER01", "Olist_Analysis"),
+				    dbo_olist_products_dataset = Source{[Schema="dbo",Item="olist_products_dataset"]}[Data]
+				in
+				    dbo_olist_products_dataset
+
+	annotation PBI_ResultType = Table
+

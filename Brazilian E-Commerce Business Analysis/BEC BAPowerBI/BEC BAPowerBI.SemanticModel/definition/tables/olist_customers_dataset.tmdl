@@ -1,0 +1,55 @@
+table olist_customers_dataset
+	lineageTag: 4b8642ce-11a6-401e-a319-ad711b1d67c4
+
+	column customer_id
+		dataType: string
+		lineageTag: 3b0d285a-a85c-4e80-9dd6-b8d1752ff402
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 36ef3eab-7ac1-4b97-a729-21f34cf2d395
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_zip_code_prefix
+		dataType: int64
+		formatString: 0
+		lineageTag: cc5942ad-8b6f-4d52-9fdf-4e3844cc6c43
+		summarizeBy: none
+		sourceColumn: customer_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_city
+		dataType: string
+		lineageTag: 2ebdfd04-ffd2-4663-aef6-6cc1aa5554dc
+		summarizeBy: none
+		sourceColumn: customer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: d0377c19-8c29-4321-85e9-8c02264eaf6d
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_customers_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\MSSQLSERVER01", "Olist_Analysis"),
+				    dbo_olist_customers_dataset = Source{[Schema="dbo",Item="olist_customers_dataset"]}[Data]
+				in
+				    dbo_olist_customers_dataset
+
+	annotation PBI_ResultType = Table
+

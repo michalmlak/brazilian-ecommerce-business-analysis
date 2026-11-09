@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pl-PL
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["olist_geolocation_dataset","olist_customers_dataset","olist_order_items_dataset","olist_order_payments_dataset","olist_order_reviews_dataset","olist_products_dataset","olist_sellers_dataset","orders","product_category_name_translation"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table olist_geolocation_dataset
+ref table olist_customers_dataset
+ref table olist_order_items_dataset
+ref table olist_order_payments_dataset
+ref table olist_order_reviews_dataset
+ref table DateTableTemplate_f082a962-82c1-498b-8104-fe1bafb4115a
+ref table LocalDateTable_72217a18-7ee7-4180-94d5-fcbda1f43d21
+ref table LocalDateTable_182864c0-9570-4765-a3ea-fd9f37ec5b5d
+ref table olist_products_dataset
+ref table olist_sellers_dataset
+ref table orders
+ref table LocalDateTable_51636f70-6337-43ec-87e4-276327d90da8
+ref table LocalDateTable_deecaa64-ef0f-4522-b9b6-d122b9e95f5b
+ref table LocalDateTable_8bd792d9-1d9e-48b2-8c2f-f0390a365df2
+ref table LocalDateTable_5dc51dbe-485d-432e-992b-38b143441bfb
+ref table LocalDateTable_402175d5-d468-4c03-bb90-2df64bb85d54
+ref table product_category_name_translation
+ref table Calendar
+
+ref cultureInfo en-US
+

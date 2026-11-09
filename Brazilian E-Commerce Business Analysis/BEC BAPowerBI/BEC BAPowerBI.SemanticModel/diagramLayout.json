@@ -1,0 +1,152 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 898.9259331698911,
+            "y": 547.209083936084
+          },
+          "nodeIndex": "olist_customers_dataset",
+          "nodeLineageTag": "4b8642ce-11a6-401e-a319-ad711b1d67c4",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1258.9647586749913,
+            "y": 27.771208634708614
+          },
+          "nodeIndex": "olist_geolocation_dataset",
+          "nodeLineageTag": "cbbec8e1-8b22-474f-b1c2-c92ff9ca5d52",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 334.22488516330827,
+            "y": 189.98580912901468
+          },
+          "nodeIndex": "olist_order_items_dataset",
+          "nodeLineageTag": "1f389aec-64e7-40c9-b7cf-d640e95f9710",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 618.54784068647575,
+            "y": -50
+          },
+          "nodeIndex": "olist_order_payments_dataset",
+          "nodeLineageTag": "80acdfc8-acf8-4860-87f3-04b402f14954",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1158.2980920083248,
+            "y": 373.652047173676
+          },
+          "nodeIndex": "olist_order_reviews_dataset",
+          "nodeLineageTag": "a3a498f4-e10a-4f06-837a-05a2879b7b16",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 57.336185751996709
+          },
+          "nodeIndex": "olist_products_dataset",
+          "nodeLineageTag": "39ae6b28-1abc-4ec3-b26e-300ae7002b81",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 122.38257242445434,
+            "y": 488.16743591123304
+          },
+          "nodeIndex": "olist_sellers_dataset",
+          "nodeLineageTag": "07807fab-68fe-42fe-bc58-d42e8e4509d9",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 618.51779432130422,
+            "y": 250.01189609288434
+          },
+          "nodeIndex": "orders",
+          "nodeLineageTag": "007144ca-160d-49c6-b5b1-c44c0ae521cd",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1420.7425364527692,
+            "y": 347.104541968042
+          },
+          "nodeIndex": "product_category_name_translation",
+          "nodeLineageTag": "497d069b-d3f4-45d3-b1d5-ebe06c3d5365",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 415.85365286207082,
+            "y": 743.04898641248633
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "4f615714-7500-4bdc-b54e-6ec47a2da2cf",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 72,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

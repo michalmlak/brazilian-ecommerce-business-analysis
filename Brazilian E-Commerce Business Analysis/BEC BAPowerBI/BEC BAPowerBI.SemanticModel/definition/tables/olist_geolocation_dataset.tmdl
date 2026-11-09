@@ -1,0 +1,54 @@
+table olist_geolocation_dataset
+	lineageTag: cbbec8e1-8b22-474f-b1c2-c92ff9ca5d52
+
+	column geolocation_zip_code_prefix
+		dataType: string
+		lineageTag: 89c83581-5213-4f5f-8213-ac43477254d3
+		summarizeBy: none
+		sourceColumn: geolocation_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_lat
+		dataType: string
+		lineageTag: 6179124f-5697-4895-8648-006a03890f31
+		summarizeBy: none
+		sourceColumn: geolocation_lat
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_lng
+		dataType: string
+		lineageTag: 907c0bac-59dd-4779-af52-caa7965e6319
+		summarizeBy: none
+		sourceColumn: geolocation_lng
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_city
+		dataType: string
+		lineageTag: c78d8940-07aa-4519-b828-1421d7f3f5ca
+		summarizeBy: none
+		sourceColumn: geolocation_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_state
+		dataType: string
+		lineageTag: 7d5e0058-7d4b-4850-82d1-7fda3e7f7608
+		summarizeBy: none
+		sourceColumn: geolocation_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_geolocation_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\MSSQLSERVER01", "Olist_Analysis"),
+				    dbo_olist_geolocation_dataset = Source{[Schema="dbo",Item="olist_geolocation_dataset"]}[Data]
+				in
+				    dbo_olist_geolocation_dataset
+
+	annotation PBI_ResultType = Table
+

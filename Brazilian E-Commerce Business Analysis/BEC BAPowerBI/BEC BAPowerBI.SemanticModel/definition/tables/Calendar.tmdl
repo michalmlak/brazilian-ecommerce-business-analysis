@@ -1,0 +1,242 @@
+table Calendar
+	lineageTag: 4f615714-7500-4bdc-b54e-6ec47a2da2cf
+	dataCategory: Time
+
+	measure 'Total Orders' =
+			
+			DISTINCTCOUNT(olist_order_items_dataset[order_id])
+		lineageTag: 44d55e65-1f3b-41c6-b12e-e5f5cc79af4d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales' =
+			
+			SUM(olist_order_items_dataset[price])
+		lineageTag: 91d8ffff-4b71-4f9e-b3d8-fe3d31c9dd80
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Order Value' =
+			
+			DIVIDE(
+			    [Total Sales],
+			    [Total Orders]
+			)
+		lineageTag: 33e1eded-860c-4e09-bda8-5c4c1eea5ae2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Items Sold' =
+			
+			COUNTROWS(olist_order_items_dataset)
+		formatString: 0
+		lineageTag: f9807447-86ef-4cf4-8b38-fc01b0510007
+
+	measure 'Payment Count' =
+			
+			COUNTROWS(olist_order_payments_dataset)
+		formatString: 0
+		lineageTag: fd908ea3-512b-431f-bcfd-a0d4e05b03bc
+
+	measure 'Total Payments' =
+			
+			SUM(olist_order_payments_dataset[payment_value])
+		lineageTag: 9faf9abd-5a8b-4da6-99b3-0e1d09782a8e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Delivery Time' =
+			
+			AVERAGEX(
+			    FILTER(
+			        orders,
+			        orders[order_status] = "delivered"
+			            && NOT(ISBLANK(orders[order_purchase_timestamp]))
+			            && NOT(ISBLANK(orders[order_delivered_customer_date]))
+			    ),
+			    DATEDIFF(
+			        orders[order_purchase_timestamp],
+			        orders[order_delivered_customer_date],
+			        DAY
+			    )
+			)
+		lineageTag: 5dfb66de-613d-419d-9749-54bb1598c9f8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Late Delivery Percentage' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS(orders),
+			        orders[order_status] = "delivered",
+			        orders[order_delivered_customer_date] > orders[order_estimated_delivery_date]
+			    ),
+			    CALCULATE(
+			        COUNTROWS(orders),
+			        orders[order_status] = "delivered",
+			        NOT(ISBLANK(orders[order_delivered_customer_date])),
+			        NOT(ISBLANK(orders[order_estimated_delivery_date]))
+			    )
+			) * 100
+		lineageTag: 41cd3ce0-9848-4688-b2e8-93e53fdb4127
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Delay' =
+			
+			AVERAGEX(
+			    FILTER(
+			        orders,
+			        orders[order_status] = "delivered"
+			            && NOT(ISBLANK(orders[order_delivered_customer_date]))
+			            && NOT(ISBLANK(orders[order_estimated_delivery_date]))
+			            && orders[order_delivered_customer_date] > orders[order_estimated_delivery_date]
+			    ),
+			    DATEDIFF(
+			        orders[order_estimated_delivery_date],
+			        orders[order_delivered_customer_date],
+			        DAY
+			    )
+			)
+		lineageTag: 36f1e8e3-1e1e-4ad2-b900-ff16efac371a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Complete Delivery Records' =
+			
+			CALCULATE(
+			    COUNTROWS(orders),
+			    orders[order_status] = "delivered",
+			    NOT(ISBLANK(orders[order_purchase_timestamp])),
+			    NOT(ISBLANK(orders[order_delivered_customer_date])),
+			    NOT(ISBLANK(orders[order_estimated_delivery_date]))
+			)
+		formatString: 0
+		lineageTag: 14f48cad-8d96-4eae-b427-ffd071b33ca2
+
+	measure 'On-time Delivery Percentage' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS(orders),
+			        orders[Delivery Performance] = "On-time"
+			    ),
+			    CALCULATE(
+			        COUNTROWS(orders),
+			        orders[Delivery Performance] IN {"On-time", "Late"}
+			    )
+			) * 100
+		lineageTag: 4b90d147-f1ab-42da-9821-70d7bb9718c7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Review Score' =
+			
+			AVERAGE(olist_order_reviews_dataset[review_score])
+		lineageTag: 16ebe281-07fb-46a7-89c4-03a85ca3e953
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Reviews' =
+			
+			COUNTROWS(olist_order_reviews_dataset)
+		formatString: #,0.000
+		lineageTag: 066ee4d7-1dec-4b12-89b1-80dd4270fc19
+
+	measure 'Low Ratings Percentage' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS(olist_order_reviews_dataset),
+			        olist_order_reviews_dataset[review_score] IN {1, 2}
+			    ),
+			    [Total Reviews]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 02f92e5e-b322-4641-92d6-2a9963d38161
+
+	measure 'Average Review Score by Category' =
+			
+			CALCULATE(
+			    AVERAGE(olist_order_reviews_dataset[review_score]),
+			    TREATAS(
+			        VALUES(olist_order_items_dataset[order_id]),
+			        orders[order_id]
+			    )
+			)
+		formatString: #,0.00
+		lineageTag: e7ff2e66-2aaf-4f75-807a-3051822028ba
+		dataCategory: Uncategorized
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 169d427e-124f-4209-9c58-79081af1aa55
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 883ca857-723b-4bbe-a352-0b09ce06f593
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 9de76423-30de-438c-9ccd-b99f722068af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: fd020496-7d31-48d5-af95-9d4a820203c4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		lineageTag: 73a2b579-2ce0-481f-959b-a2a265984793
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 2ec781dc-8168-4373-bfe4-e2ef082cab49
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(
+				        DATE(2016, 1, 1),
+				        DATE(2018, 12, 31)
+				    ),
+				    "Year", YEAR([Date]),
+				    "Month Number", MONTH([Date]),
+				    "Month", FORMAT([Date], "MMMM"),
+				    "Year-Month", FORMAT([Date], "YYYY-MM"),
+				    "Quarter", "Q" & FORMAT([Date], "Q")
+				)
+
+	annotation PBI_Id = 40939ea33e3347bfb7f179acfde1e781
+

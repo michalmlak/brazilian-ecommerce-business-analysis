@@ -1,0 +1,50 @@
+table olist_sellers_dataset
+	lineageTag: 07807fab-68fe-42fe-bc58-d42e8e4509d9
+
+	column seller_id
+		dataType: string
+		lineageTag: fa1c1ffc-2306-4ce0-9799-239d77c73b49
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_code_prefix
+		dataType: int64
+		formatString: 0
+		lineageTag: e8796e23-c234-4452-b5b6-0e4799c3a8fd
+		summarizeBy: none
+		sourceColumn: seller_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_city
+		dataType: string
+		lineageTag: 223e69b4-86ab-4101-8cce-7918a45eda5c
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 95108cbe-6225-4555-8cdc-6c46641e15e9
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_sellers_dataset = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost\MSSQLSERVER01", "Olist_Analysis"),
+				    dbo_olist_sellers_dataset = Source{[Schema="dbo",Item="olist_sellers_dataset"]}[Data],
+				    #"Capitalized Each Word" = Table.TransformColumns(dbo_olist_sellers_dataset,{{"seller_city", Text.Proper, type text}})
+				in
+				    #"Capitalized Each Word"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
