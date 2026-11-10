@@ -43,11 +43,11 @@ The SQL analysis was divided into five stages:
 
 | Stage | Analysis | SQL Files |
 |---|---|---|
-| 01 | Data Quality | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/4c8a5c46e4e754ddb28e42c992e96b232e467988/Brazilian%20E-Commerce%20Business%20Analysis/01_Data%20Quality) |
-| 02 | Sales Analysis | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/4c8a5c46e4e754ddb28e42c992e96b232e467988/Brazilian%20E-Commerce%20Business%20Analysis/02_Sales%20Analysis) |
-| 03 | Delivery Performance | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/4c8a5c46e4e754ddb28e42c992e96b232e467988/Brazilian%20E-Commerce%20Business%20Analysis/03_Delivery%20Performance) |
-| 04 | Customer Satisfaction | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/4c8a5c46e4e754ddb28e42c992e96b232e467988/Brazilian%20E-Commerce%20Business%20Analysis/04_Customer%20Satisfaction) |
-| 05 | Integrated Insights | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/4c8a5c46e4e754ddb28e42c992e96b232e467988/Brazilian%20E-Commerce%20Business%20Analysis/05_Integrated%20Insights) |
+| 01 | Data Quality | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/85347c840d3a23e444613a30866fb1f83a4fff35/Brazilian%20E-Commerce%20Business%20Analysis/01_Data%20Quality) |
+| 02 | Sales Analysis | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/85347c840d3a23e444613a30866fb1f83a4fff35/Brazilian%20E-Commerce%20Business%20Analysis/02_Sales%20Analysis) |
+| 03 | Delivery Performance | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/85347c840d3a23e444613a30866fb1f83a4fff35/Brazilian%20E-Commerce%20Business%20Analysis/03_Delivery%20Performance) |
+| 04 | Customer Satisfaction | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/85347c840d3a23e444613a30866fb1f83a4fff35/Brazilian%20E-Commerce%20Business%20Analysis/04_Customer%20Satisfaction) |
+| 05 | Integrated Insights | [View queries](https://github.com/michalmlak/brazilian-ecommerce-business-analysis/tree/85347c840d3a23e444613a30866fb1f83a4fff35/Brazilian%20E-Commerce%20Business%20Analysis/05_Integrated%20Insights) |
 
 Each stage contains SQL queries designed to answer specific business questions and evaluate key performance indicators.
 
